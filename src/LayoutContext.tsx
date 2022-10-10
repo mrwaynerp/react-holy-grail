@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 export type LayoutContextType = {
-  settings?: any;
-  toggleLeftBar?: any;
-  toggleRightBar?: any;
+  settings: { leftActive: boolean, rightActive: boolean };
+  toggleLeftBar: () => void;
+  toggleRightBar: () => void;
 }[]
 
-export const LayoutContext = React.createContext<LayoutContextType>([{}])
+export type LayoutProviderProps = {
+  children: ReactNode;
+}
+
+export const LayoutContext = React.createContext<LayoutContextType>([{
+  settings: { leftActive: true, rightActive: false },
+  toggleLeftBar: () => console.log('no layout provider.'),
+  toggleRightBar: () => console.log('no layout provider.'),
+}])
 
 export const useLayout = () => React.useContext(LayoutContext)
 
-export default function LayoutProvider(props: any) {
+export default function LayoutProvider(props: LayoutProviderProps) {
 
   const [layoutSettings, setLayoutSettings] = React.useState({
     settings: {
