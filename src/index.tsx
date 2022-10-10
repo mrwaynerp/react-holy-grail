@@ -4,12 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// import and wrap App with LayoutContext
+// Context API is designed to share data with a tree of components
+import LayoutContext from './LayoutContext'
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <LayoutContext>
+      <App />
+    </LayoutContext>
   </React.StrictMode>
 );
 

@@ -24,14 +24,14 @@ header {
 }
 
 nav {
-  background-color: darkgray;
+  background-color: lightblue;
   grid-area: nav;
   width: 250px;
   transition: width .3s;
 }
 
 aside {
-  background-color: darkgray;
+  background-color: lightblue;
   grid-area: aside;
   width: 250px;
   transition: width .3s;
@@ -45,7 +45,7 @@ main {
 
 footer {
   grid-area: footer;
-  background-color: lightblue;
+  background-color: darkgray;
 }
 
 .collapse {
