@@ -2,11 +2,11 @@ import { useLayout } from './LayoutContext'
 import './Layout.css'
 
 export type LayoutProps = {
-  header?: JSX.Element;
-  left?: JSX.Element;
-  main?: JSX.Element;
-  right?: JSX.Element;
-  footer?: JSX.Element;
+  header: JSX.Element;
+  left: JSX.Element;
+  main: JSX.Element;
+  right: JSX.Element;
+  footer: JSX.Element;
 }
 
 export default function Layout(props: LayoutProps) {
