@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 
 export type LayoutContextType = {
-  settings: { leftActive: boolean, rightActive: boolean };
+  settings: { leftPanelActive: boolean, rightPanelActive: boolean };
   toggleLeftBar: () => void;
   toggleRightBar: () => void;
 }[]
@@ -11,7 +11,7 @@ export type LayoutProviderProps = {
 }
 
 export const LayoutContext = React.createContext<LayoutContextType>([{
-  settings: { leftActive: true, rightActive: false },
+  settings: { leftPanelActive: true, rightPanelActive: false },
   toggleLeftBar: () => console.log('no layout provider.'),
   toggleRightBar: () => console.log('no layout provider.'),
 }])
@@ -22,14 +22,23 @@ export default function LayoutProvider(props: LayoutProviderProps) {
 
   const [layoutSettings, setLayoutSettings] = React.useState({
     settings: {
-      leftActive: true,
-      rightActive: true,
+      leftPanelActive: true,
+      rightPanelActive: true,
     }
   })
 
   const dispatchLayoutSettings: any = {
-    toggleLeftBar: () => setLayoutSettings(state => ({ ...state, settings: { ...state.settings, leftActive: !state.settings.leftActive } })),
-    toggleRightBar: () => setLayoutSettings(state => ({ ...state, settings: { ...state.settings, rightActive: !state.settings.rightActive } }))
+    toggleLeftBar: () => setLayoutSettings(state => ({
+      ...state, settings: {
+        ...state.settings,
+        leftPanelActive: !state.settings.leftPanelActive
+      }
+    })),
+    toggleRightBar: () => setLayoutSettings(state => ({
+      ...state, settings: {
+        ...state.settings, rightPanelActive: !state.settings.rightPanelActive
+      }
+    }))
   }
 
   return (

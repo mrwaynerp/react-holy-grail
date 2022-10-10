@@ -13,15 +13,15 @@ export default function Layout(props: LayoutProps) {
   const { header, left, main, right, footer} = props
   const [layout, setLayout] = useLayout()
 
-  const isLeftSidebarOpen = layout.settings.leftActive
-  const isRightSidebarOpen = layout.settings.rightActive
+  const isLeftPanelOpen = layout.settings.leftPanelActive
+  const isRightPanelOpen = layout.settings.rightPanelActive
   const toggleLeftBar = () => setLayout.toggleLeftBar()
   const toggleRightBar = () => setLayout.toggleRightBar()
 
   return (
     <div className='container'>
       <header>{header}</header>
-      <nav className={isLeftSidebarOpen ? '' : 'collapse'}>
+      <nav className={isLeftPanelOpen ? '' : 'collapse'}>
         <div className="sidebar-header">
           {left}
           <button onClick={toggleLeftBar}>Close Panel</button>
@@ -32,7 +32,7 @@ export default function Layout(props: LayoutProps) {
         {main}
       </main>
 
-      <aside className={isRightSidebarOpen ? '' : 'collapse'}>
+      <aside className={isRightPanelOpen ? '' : 'collapse'}>
         <div className="sidebar-header">
           {right}
           <button onClick={toggleRightBar}>Close Panel</button>
