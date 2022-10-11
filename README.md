@@ -5,7 +5,7 @@ The holy grail layout is a layout model commonly used in web design. It features
 
 The name "holy grail" refers to a legendary sought-after thing. In the early 2000s, it was difficult to reliably achieve the holy grail layout using existing web technologies. Today the holy grail layout is trivial to implement using widely-adopted technologies, such as CSS Grid or Flexbox.
 
-# Git Push/Pull with Personal Access Token
+# Git Pull/Push with Personal Access Token
 git remote set-url origin https://user:token@github.com/user/repo
 
 # Getting Started with React Holy Grail
