@@ -17,11 +17,13 @@ export default function Layout(props: LayoutProps) {
   const isRightPanelOpen = layout.settings.rightPanelActive
   const toggleLeftBar = () => setLayout.toggleLeftBar()
   const toggleRightBar = () => setLayout.toggleRightBar()
+  const setPanelActiveClass = (isPanelOpen: boolean) => isPanelOpen ? '' : 'collapse';
 
   return (
     <div className='container'>
       <header>{header}</header>
-      <nav className={isLeftPanelOpen ? '' : 'collapse'}>
+
+      <nav className={setPanelActiveClass(isLeftPanelOpen)}>
         <div className="sidebar-header">
           {left}
           <button onClick={toggleLeftBar}>Close Panel</button>
@@ -32,7 +34,7 @@ export default function Layout(props: LayoutProps) {
         {main}
       </main>
 
-      <aside className={isRightPanelOpen ? '' : 'collapse'}>
+      <aside className={setPanelActiveClass(isRightPanelOpen)}>
         <div className="sidebar-header">
           {right}
           <button onClick={toggleRightBar}>Close Panel</button>

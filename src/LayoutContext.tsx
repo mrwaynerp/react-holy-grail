@@ -43,7 +43,8 @@ export default function LayoutProvider(props: LayoutProviderProps) {
     })),
     toggleRightBar: () => setLayout(state => ({
       ...state, settings: {
-        ...state.settings, rightPanelActive: !state.settings.rightPanelActive
+        ...state.settings,
+        rightPanelActive: !state.settings.rightPanelActive
       }
     }))
   }
